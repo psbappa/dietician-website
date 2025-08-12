@@ -6,10 +6,18 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:mysql": "cross-env DB_PROVIDER=mysql DATABASE_URL='mysql://user:pass@localhost:3306/mydb' next dev",
+    "dev:postgres": "cross-env DB_PROVIDER=postgresql DATABASE_URL='postgresql://user:pass@localhost:5432/mydb?schema=public' next dev",
+    "dev:mongo": "cross-env DB_PROVIDER=mongodb DATABASE_URL='mongodb+srv://user:pass@cluster0.mongodb.net/mydb' next dev",
+    "migrate": "prisma migrate dev"
   },
   "dependencies": {
+    "@prisma/client": "^6.13.0",
     "@tailwindcss/typography": "^0.5.16",
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.1",
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -18,11 +26,13 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "prisma": "^6.13.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
